@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+logging:
+  level:
+    root: info # root级别(即项目的所有日志)
+    cool.ddn: debug # package级别(指定包下的日志级别)
+  file:
+    path: log # 日志文件的目录
+    name: blog-dev.log # 日志文件名
+server:
+  port: 8081

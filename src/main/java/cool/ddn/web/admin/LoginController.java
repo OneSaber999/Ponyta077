@@ -39,7 +39,7 @@ public class LoginController {
         }
         else {
             attributes.addFlashAttribute("message","用户名和密码错误");
-            return "redirect:/admin/login";
+            return "redirect:/admin";
         }
     }
     //注销当前用户

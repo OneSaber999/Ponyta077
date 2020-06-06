@@ -4,7 +4,7 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>分类管理</title>
+    <title>标签管理</title>
     <!--引入自定义CSS-->
     <link rel="stylesheet" href="../../static/css/me.css">
     <!-- 引入样式 -->
@@ -13,7 +13,7 @@
 <body>
 
 <!--导航-->
-<nav th:replace="admin/_fragments :: menu(2)" class="ui attached segment m-padded-tb-mini m-shadow-small">
+<nav th:replace="admin/_fragments :: menu(3)" class="ui attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui stackable secondary stackable menu">
             <h2 class="ui pink header item">Ponyta077</h2>
@@ -41,8 +41,8 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a th:href="@{/admin/types/input}" href="" class="item">新增</a>
-            <a th:href="@{/admin/types}" href="" class="active pink item">列表</a>
+            <a th:href="@{/admin/tags/input}" href="" class="item">新增</a>
+            <a th:href="@{/admin/tags}" href="" class="active pink item">列表</a>
         </div>
     </div>
 </div>
@@ -63,13 +63,13 @@
             </tr>
             </thead>
             <!--iter 拿到索引参数-->
-            <tbody th:each="type,iterStat : ${page.content}">
+            <tbody th:each="tag,iterStat : ${page.content}">
             <tr>
                 <td th:text="${iterStat.count}">1</td>
-                <td th:text="${type.name}">音乐</td>
+                <td th:text="${tag.name}">音乐</td>
                 <td>
-                    <a href="" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="ui mini teal basic button">修改</a>
-                    <a href="" onclick="javascript:return del();" th:href="@{/admin/types/{id}/delete(id=${type.id})}"class="ui mini red basic button">删除</a>
+                    <a href="" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui mini teal basic button">修改</a>
+                    <a href="" onclick="javascript:return del();" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}"class="ui mini red basic button">删除</a>
                 </td>
             </tr>
             </tbody>
@@ -77,8 +77,8 @@
             <tr>
                 <th colspan="6" th:if="${page.totalPages}>1">
                     <div class="ui mini pagination menu">
-                        <a th:href="@{/admin/types(page=${page.number}-1)}" href="" class="item" th:unless="${page.first}" >上一页</a>
-                        <a th:href="@{/admin/types(page=${page.number}+1)}" href="" class="item" th:unless="${page.last}">下一页</a>
+                        <a th:href="@{/admin/tag(page=${page.number}-1)}" href="" class="item" th:unless="${page.first}" >上一页</a>
+                        <a th:href="@{/admin/tags(page=${page.number}+1)}" href="" class="item" th:unless="${page.last}">下一页</a>
                     </div>
                 </th>
             </tr>
